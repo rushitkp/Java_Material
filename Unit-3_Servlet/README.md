@@ -95,7 +95,7 @@ public class MyServlet extends HttpServlet {
 1. In Project Explorer, navigate to WebContent > WEB-INF and open web.xml.
 2. Add the servlet and servlet-mapping configuration:
 
-```
+```jsp
 <servlet>
     <servlet-name>MyServlet</servlet-name>
     <servlet-class>com.example.MyServlet</servlet-class>
@@ -126,7 +126,7 @@ public class MyServlet extends HttpServlet {
 1. `Lacks HTTP-specific methods`: Doesn't offer the convenience methods of HttpServlet like doGet(), doPost(), etc.
 2. `Less common`: Not as frequently used as HttpServlet for web applications.
 
-```
+```java
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -164,7 +164,7 @@ public class ExampleGenericServlet extends GenericServlet {
 
 ### web.xml
 
-```
+```jsp
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
@@ -185,7 +185,7 @@ public class ExampleGenericServlet extends GenericServlet {
 
 ```
 
-```
+```java
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -270,7 +270,7 @@ public class UserController extends HttpServlet {
 
 4. `Security`: Data stored in an HttpSession is server-side and is not exposed directly to the client.
 
-```
+```java
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -342,7 +342,7 @@ public class SessionExample extends HttpServlet {
 URL rewriting is a technique used to maintain the state of an object between client requests when cookies are disabled. In URL rewriting, the session state is embedded within the URL path of the next request.
 
 
-```
+```java
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -386,7 +386,7 @@ public class URLRewritingExample extends HttpServlet {
 
 ```
 
-```
+```java
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -433,7 +433,7 @@ public class Testing extends HttpServlet {
 Hidden fields in HTML forms allow developers to send additional data back to the server without displaying it on the web page. These fields can be useful for maintaining state between client requests, especially when session tracking is needed.
 
 
-```
+```java
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -484,7 +484,7 @@ public class HiddenFieldExample extends HttpServlet {
 ## Introduction
 `RequestDispatcher` is an interface provided by the Servlet API to handle server-side include and forward requests. One of the primary use-cases is forwarding the request from one servlet to another, without the client being aware of the change in URL.
 
-```
+```java
 package requestdispatcherexample;
 
 import java.io.IOException;
@@ -507,7 +507,7 @@ public class DispatcherServlet extends HttpServlet {
 
 ```
 
-```
+```java
 
 package requestdispatcherexample;
 import java.io.IOException;
@@ -529,7 +529,7 @@ public class TargetServlet extends HttpServlet {
 ```
 
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
@@ -572,7 +572,7 @@ public class TargetServlet extends HttpServlet {
 
 ## Send Redirect
 
-```
+```java
 
 package requestdispatcherexample;
 
@@ -658,7 +658,7 @@ A JSP page is converted into a Servlet to service requests. This process, known 
 1. Configure User Access in Tomcat
 Navigate to the tomcat-users.xml file located within the tomcat/conf directory. Add the following roles and user:
 
-```
+```xml
 <role rolename="manager-gui" />
 <role rolename="admin-gui" />
 <user username="myadmin" password="mypassword" roles="manager-gui,admin-gui" />
@@ -671,7 +671,7 @@ If you have Tomcat running (e.g., from Eclipse), ensure to stop it first.
 Navigate to the bin folder within your Tomcat directory and execute:
 
 
-```
+```css
 ./startup.sh
 
 ```
@@ -680,7 +680,7 @@ This command will start the Tomcat server.
 4. Access the Tomcat Web Interface
 Open a browser and visit:
 ```
-http://localhost:8080
+`http://localhost:8080`
 ```
 
 You should be able to log in using the credentials you configured:
@@ -705,7 +705,7 @@ Remember to execute this command from the directory containing your web applicat
 JSP Scripting elements are written inside `<% %>` tags. The code inside `<% %>` tags is processed by the JSP engine during the translation of the JSP page. Any other text in the JSP page is considered as HTML code or plain text.
 
 **Example:**
-```html
+```jsp
 <html>
     <head>
         <title>My First JSP Page</title>
@@ -736,7 +736,7 @@ JSP Scripting elements are written inside `<% %>` tags. The code inside `<% %>` 
 
 JSP allows developers to include comments in their code, which are not processed during page translation and execution. This can be useful for documentation or to temporarily disable a portion of code without removing it. JSP comments are different from HTML comments; they are not visible in the final rendered output.
 
-```
+```jsp
 <html>
     <head>
         <title>JSP Comment Example</title>
@@ -761,7 +761,7 @@ JSP directives provide instructions to the JSP container, affecting the overall 
 
 Here is a sample JSP program that demonstrates the use of various directives:
 
-```
+```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.Date" %>
 <%@ include file="header.jsp" %>
@@ -791,7 +791,7 @@ Here is a sample JSP program that demonstrates the use of various directives:
 
 `header.jsp`
 
-```
+```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -808,7 +808,7 @@ Here is a sample JSP program that demonstrates the use of various directives:
 ```
 `footer.jsp`
 
-```
+```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -860,7 +860,7 @@ In JSP, an expression is used to evaluate a single Java expression and insert it
 
 Here's a sample JSP page that demonstrates the use of JSP expressions:
 
-```
+```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <html>
@@ -931,6 +931,7 @@ Here are the main JSP implicit objects:
 
 Here's a sample JSP snippet that demonstrates the use of some implicit objects:
 
+```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isErrorPage="true" %>
 <!DOCTYPE html>
 <html>
@@ -980,7 +981,7 @@ Here's a sample JSP snippet that demonstrates the use of some implicit objects:
 
     </body>
 </html>
-
+```
 
 
 # Object Scope in JSP
@@ -1114,7 +1115,7 @@ Using JSP, you can create web forms and also handle their submissions. Here's a 
 
 You can design a simple form that collects user information, such as a name and email.
 
-```jsp
+```html
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -1136,7 +1137,7 @@ You can design a simple form that collects user information, such as a name and 
 
 After submission, data is sent to processForm.jsp, where it is processed.
 
-```jsp
+```css
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
