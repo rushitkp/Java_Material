@@ -137,7 +137,7 @@ Using Java's JDBC API, we can connect to a relational database and execute DDL o
 
 ### Code to Create a Table
 
-```
+```java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -177,7 +177,7 @@ public class CreateTableExample {
 ## Altering a Table using DDL in Java with JDBC
 
 Once a table is created in a database, there might be scenarios where you'd need to modify its structure, like adding a new column, deleting an existing column, or changing the datatype of a column. JDBC provides a way to do this in Java using the `ALTER TABLE` command.
-```
+```java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -208,7 +208,7 @@ public class AlterTableExample {
 
 Dropping a table means deleting the table from the database entirely. This operation will remove the table structure as well as the data it contains. Using Java's JDBC API, you can easily drop a table from a database.
 
-```
+```java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -238,7 +238,7 @@ public class DropTableExample {
 ## Executing a SELECT Query using Java with JDBC
 
 Using Java's JDBC API, you can easily fetch data from a database using the `SELECT` SQL statement.
-```
+```java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -275,7 +275,7 @@ public class SelectQueryExample {
 ## Inserting Data into a Database using Java with JDBC
 
 Using Java's JDBC API, you can easily insert data into a database. Here's how to do it:
-```
+```java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -307,7 +307,7 @@ public class InsertQueryStatementExample {
 ## Updating Data in a Database using Java with JDBC (Using Statement)
 
 
-```
+```java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -341,7 +341,7 @@ public class UpdateQueryStatementExample {
 
 ## Deleting Data from a Database using Java with JDBC (Using Statement)
 
-```
+```java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -377,7 +377,7 @@ public class DeleteQueryStatementExample {
 `PreparedStatement` in JDBC offers several advantages over `Statement`, primarily in terms of security and performance. Here, we'll cover CRUD operations using `PreparedStatement`.
 
 
-```
+```java
 
 import java.sql.*;
 
@@ -443,7 +443,7 @@ try (Connection conn = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PAS
 ```
 
 
-```
+```java
 
 import java.sql.*;
 
@@ -476,7 +476,8 @@ public class MultipleResultsExample {
         }
     }
 }
-
+```
+```sql
 
 -- Creating a sample database
 CREATE DATABASE sampledb;
@@ -528,7 +529,7 @@ In JDBC, a `ResultSet` object provides methods for retrieving data from the resu
 
 Example of Traditional ResultSet Limitation:
 
-```
+```java
 import java.sql.*;
 
 public class TraditionalResultSetExample {
@@ -566,7 +567,7 @@ A Scrollable ResultSet addresses these limitations. Here's how:
 
 3. `Flexible Iteration:` Scrollable ResultSets let you iterate over the data as needed, providing more flexibility for data processing tasks.
 
-```
+```java
 
 import java.sql.*;
 
@@ -611,7 +612,7 @@ Limitations
 2. `Concurrency Issues:` If multiple applications or parts of an application try to update the database simultaneously using an updateable ResultSet, there can be concurrency issues.
 
 
-```
+```java
 
 import java.sql.*;
 
@@ -659,7 +660,7 @@ The CachedRowSet is an implementation of the RowSet interface that stores its da
 
 ### Example of CachedRowSet:
 
-```
+```java
 import javax.sql.rowset.*;
 import com.sun.rowset.CachedRowSetImpl;
 
@@ -727,12 +728,12 @@ In JDBC, each SQL statement is considered a transaction by default. However, it'
 3. **Commit or Rollback:**
   Depending on your operations' success, you can either commit or roll back the transaction
 
-  ```
+  ```java
  connection.commit();   // To commit the transaction
  connection.rollback(); // To roll back the transaction in case of errors
 
   ```
-```
+```java
 
 import java.sql.*;
 
@@ -782,7 +783,7 @@ Using SQL escape sequences allows you to craft database-independent queries in J
    {ts 'yyyy-mm-dd hh:mm:ss'}
    ```
 
-   ```
+   ```java
    PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM orders WHERE orderDate > {d '2022-01-01'}");
    ResultSet rs = pstmt.executeQuery();
 
