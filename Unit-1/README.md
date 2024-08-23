@@ -88,7 +88,7 @@ Executing several tasks simultaneously where each task is a separate independent
 of the same program, is called Thread based multitasking.
 And each independent part is called a "Thread". 
 
-```
+```java
 
 
 class MyThread extends Thread {
@@ -112,7 +112,7 @@ public class ThreadDemo {
 
 ```
 
-```
+```yml
 main thread
 main thread
 Child Thread
@@ -172,7 +172,7 @@ If we are not overriding run() method then Thread class run() method will be exe
 which has empty implementation and hence we won't get any output.
 
 Example:
-```
+```java
 class MyThread extends Thread {
 }
 
@@ -214,7 +214,7 @@ Because there occurred some unusual erroneous event, like a segmentation fault o
 
 ### **Writing  Multithreaded  Programs**
 
-```
+```java
 class MyThread extends Thread {
     public void run() {
         System.out.println("Thread is running.");
@@ -228,7 +228,7 @@ class MyThread extends Thread {
 
 ```
 
-```
+```java
 class MyRunnable implements Runnable {
     public void run() {
         System.out.println("Runnable is running.");
